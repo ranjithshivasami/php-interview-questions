@@ -82,7 +82,7 @@ $var1 = &$var2
 ```
  **[⬆ Back to Top](#table-of-contents)**
 
-2. ### What does $GLOBALS mean
+2. ### What does \$GLOBALS mean
     $GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script.
 
  **[⬆ Back to Top](#table-of-contents)**
