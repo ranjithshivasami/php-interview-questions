@@ -5,7 +5,7 @@
 | No. | Questions |
 |-----|-----------|
 | 1 | [How can you pass a variable by reference?](#How-can-you-pass-a-variable-by-reference) |
-| 2 | [What does $GLOBALS mean?](#What-does-\$GLOBALS-mean)|
+| 2 | [What does $GLOBALS mean?](#what-does-GLOBALS-mean)|
 | 3 | [What is the difference between == and ===?](#What-is-the-difference-between--and--?)|
 | 4 | [What is the use of ini_set()?](#What-is-the-use-of-ini_set()?)|
 | 5 | [Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP?)
@@ -82,7 +82,7 @@ $var1 = &$var2
 ```
  **[⬆ Back to Top](#table-of-contents)**
 
-2. ### What does \$GLOBALS mean
+2. ### What does $GLOBALS mean
     $GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script.
 
  **[⬆ Back to Top](#table-of-contents)**
