@@ -6,7 +6,7 @@
 |-----|-----------|
 | 1 | [How can you pass a variable by reference?](#How-can-you-pass-a-variable-by-reference) |
 | 2 | [What does $GLOBALS mean?](#what-does-GLOBALS-mean)|
-| 3 | [What is the difference between == and ===?](#What-is-the-difference-between--and--?)|
+| 3 | [What is the difference between == and ===?](#what-is-the-difference-between-and-?)|
 | 4 | [What is the use of ini_set()?](#What-is-the-use-of-ini_set()?)|
 | 5 | [Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP?)
 | 6 | [Differentiate between echo and print()](#Differentiate-between-echo-and-print())
