@@ -14,9 +14,9 @@
 | 7 | [Explain how we handle exceptions in PHP?](#explain-how-we-handle-exceptions-in-PHP)|
 | 8 |[What is PDO in PHP?](#What-is-PDO-in-PHP)|
 | 9 |[What does the 'var' keyword mean in PHP?](#What-does-the-var-keyword-mean-in-PHP)|
-| 12 |[Explain what the different PHP errors are](#Explain-what-the-different-PHP-errors-are)|
-| 13 |[Is there a difference between isset and !empty?](#Is-there-a-difference-between-isset-and-!empty)|
-| 14 |[When should I use require vs include?](#When-should-I-use-require-vs-include)|
+| 10 |[Explain what the different PHP errors are](#Explain-what-the-different-PHP-errors-are)|
+| 11 |[Is there a difference between isset and !empty?](#Is-there-a-difference-between-isset-and-!empty)|
+| 12 |[When should I use require vs include?](#When-should-I-use-require-vs-include)|
 | 15 |[What is stdClass in PHP?](#What-is-stdClass-in-PHP)|
 | 16 |[What are PSRs? Choose 1 and briefly describe it.](#What-are-PSRs?-Choose-1-and-briefly-describe-it.)|
 | 17 |[What's the difference between isset() and array_key_exists()? ](#What's-the-difference-between-isset()-and-array_key_exists())|
@@ -145,14 +145,14 @@ $var1 = &$var2
          print "this part is always executed n";
       }
    ```
-   **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 8. ### What is PDO in PHP?
    PDO stands for PHP Data Object.
 
    It is a set of PHP extensions that provide a core PDO class and database, specific drivers. It provides a vendor-neutral, lightweight, data-access abstraction layer. Thus, no matter what database we use, the function to issue queries and fetch data will be same. It focuses on data access abstraction rather than database abstraction.
 
-   **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 9. ### What does the 'var' keyword mean in PHP
    The var keyword creates a property in a class. Since PHP 5, it is equivalent to the public keyword.
@@ -165,3 +165,33 @@ $var1 = &$var2
       * A **notice** is a non-critical error saying something went wrong in execution, something minor like an undefined variable.
       * A **warning**  is given when a more critical error like if an include() command went to retrieve a non-existent file. In both this and the error above, the script would continue.
       * A **fatal error**  would terminate the code. Failure to satisfy a require() would generate this type of error, for example.
+
+11. ### Is there a difference between isset and !empty
+
+   ### Isset function
+   ISSET checks the variable to see if it has been set. In other words, it checks to see if the variable is any value except NULL or not assigned a value. ISSET returns TRUE if the variable exists and has a value other than NULL. That means variables assigned a "", 0, "0", or FALSE are set, and therefore are TRUE for ISSET.
+
+   **empty function**
+
+   EMPTY checks to see if a variable is empty. Empty is interpreted as: "" (an empty string), 0 (integer), 0.0 (float)`, "0" (string), NULL, FALSE, array() (an empty array), and "$var;" (a variable declared, but without a value in a class.
+   
+|Expression|gettype()|empty()|is_null()|isset()|bool : if($x)|
+|----------|---------|-------|---------|-------|-------------|
+|$x = "";|string|true|false|true|false|
+|$x = null;|NULL|true|true|false|false|
+|var $x;|NULL|true|true|false|false|
+|$x is undefined|NULL|true|true|false|false|
+|$x = [];|array|true|false|true|false|
+|$x = ['a', 'b'];|array|false|false|true|true|
+|$x = false;|bool|true|false|true|false|
+|$x = true;|bool|false|false|true|true|
+|$x = 1;|int|false|false|true|true|
+|$x = 42;|int|false|false|true|true|
+|$x = 0;|int|true|false|true|false|
+|$x = -1;|int|false|false|true|true|
+|$x = "1";|string|false|false|true|true|
+|$x = "0";|string|true|false|true|false|
+|$x = "-1";|string|false|false|true|true|
+|$x = "php";|string|false|false|true|true|
+|$x = "true";|string|false|false|true|true|
+|$x = "false";|string|false	false	true	true|
