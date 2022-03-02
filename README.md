@@ -5,8 +5,10 @@ code {
     margin: 0;
     font-size: 85%;
     background-color: #ccc
-    border-radius: 3px;
-    color: #e83e8c;
+    border-radius: 3px;    
+}
+.code {
+   color: #e83e8c;
 }
 </style>
 # php Interview Questions
@@ -172,6 +174,6 @@ $var1 = &$var2
 
 10. ### Explain what the different PHP errors are
 
-      * A <code>notice</code> is a non-critical error saying something went wrong in execution, something minor like an undefined variable.
-      * A <code>warning </code> is given when a more critical error like if an include() command went to retrieve a non-existent file. In both this and the error above, the script would continue.
-      * A <code>fatal error </code> would terminate the code. Failure to satisfy a require() would generate this type of error, for example.
+      * A <code class="code">notice</code> is a non-critical error saying something went wrong in execution, something minor like an undefined variable.
+      * A <code class="code">warning </code> is given when a more critical error like if an include() command went to retrieve a non-existent file. In both this and the error above, the script would continue.
+      * A <code class="code">fatal error </code> would terminate the code. Failure to satisfy a require() would generate this type of error, for example.
