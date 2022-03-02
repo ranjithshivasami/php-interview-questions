@@ -1,16 +1,4 @@
-<style>
-p.note { padding: 5px 15px; color: #000; background-color: #ffffcc}
-code {   
-    padding: .2em .4em;
-    margin: 0;
-    font-size: 85%;
-    background-color: #ccc
-    border-radius: 3px;    
-}
-.code {
-   color: #e83e8c;
-}
-</style>
+
 # php Interview Questions
 
 ### Table of Contents
