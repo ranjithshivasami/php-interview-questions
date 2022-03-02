@@ -6,11 +6,11 @@
 |-----|-----------|
 | 1 | [How can you pass a variable by reference?](#How-can-you-pass-a-variable-by-reference) |
 | 2 | [What does $GLOBALS mean?](#what-does-GLOBALS-mean)|
-| 3 | [What is the difference between == and ===?](#what-is-the-difference-between-and)|
-| 4 | [What is the use of ini_set()?](#What-is-the-use-of-ini_set()?)|
-| 5 | [Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP?)
-| 6 | [Differentiate between echo and print()](#Differentiate-between-echo-and-print())
-| 7 | [Explain how we handle exceptions in PHP?](#Explain-how-we-handle-exceptions-in-PHP?)
+| 3 | [What is the difference between == and ===?](#what-is-the-difference-between--and-)|
+| 4 | [What is the use of ini_set()?](#what-is-the-use-of-ini_set)|
+| 5 | [Is multiple inheritance supported in PHP?](#is-multiple-inheritance-supported-in-PHP)
+| 6 | [Differentiate between echo and print()](#differentiate-between-echo-and-print)
+| 7 | [Explain how we handle exceptions in PHP?](#explain-how-we-handle-exceptions-in-PHP)
 | 7 |[Explain how we handle exceptions in PHP?](#Explain-how-we-handle-exceptions-in-PHP?)|
 | 8 |[What do we mean by keys and values?](#What-do-we-mean-by-keys-and-values?)|
 | 9 |[Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP?)|
