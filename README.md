@@ -17,11 +17,10 @@
 | 10 |[Explain what the different PHP errors are](#Explain-what-the-different-PHP-errors-are)|
 | 11 |[Is there a difference between isset and !empty?](#Is-there-a-difference-between-isset-and-empty)|
 | 12 |[When should I use require vs include?](#When-should-I-use-require-vs-include)|
-| 15 |[What is stdClass in PHP?](#What-is-stdClass-in-PHP)|
-| 16 |[What are PSRs? Choose 1 and briefly describe it.](#What-are-PSRs?-Choose-1-and-briefly-describe-it.)|
-| 17 |[What's the difference between isset() and array_key_exists()? ](#What's-the-difference-between-isset()-and-array_key_exists())|
-| 18 |[What is the difference between var_dump() and print_r()?](#What-is-the-difference-between-var_dump()-and-print_r())|
-| 19 |[Give me some real life examples when you had to use __destruct in your classes](#Give-me-some-real-life-examples-when-you-had-to-use-__destruct-in-your-classes)|
+| 13 |[What is stdClass in PHP?](#What-is-stdClass-in-PHP)|
+| 14 |[What's the difference between isset() and array_key_exists()? ](#What-s-the-difference-between-isset-and-array_key_exists)|
+| 15 |[What is the difference between var_dump() and print_r()?](#What-is-the-difference-between-var_dump-and-print_r)|
+| 16 |[Give me some real life examples when you had to use __destruct in your classes](#Give-me-some-real-life-examples-when-you-had-to-use-destruct-in-your-classes)|
 | 20 |[Differentiate between echo and print()](#Differentiate-between-echo-and-print())|
 | 21 |[Can you extend a Final defined class?](#Can-you-extend-a-Final-defined-class)|
 | 22 |[What is the differences between $a != $b and $a !== $b?](#What-is-the-differences-between-\$a-!=-\$b-and-\$a-!==-\$b)|
@@ -197,5 +196,75 @@ $var1 = &$var2
       |$x = "php";|string|false|false|true|true|
       |$x = "true";|string|false|false|true|true|
       |$x = "false";| string| false	|false|	true	|true|
+
+**[⬆ Back to Top](#table-of-contents)**
+
+13. ### What is stdClass in PHP?
+      **stdClass** is just a generic **'empty'** class that's used when casting other types to objects. **stdClass** is not the base class for objects in PHP. This can be demonstrated fairly
+
+      ```
+      class Foo{}
+      $foo = new Foo();
+      echo ($foo instanceof stdClass)?'Y':'N'; // outputs 'N'
+      ```
+**[⬆ Back to Top](#table-of-contents)**
+
+14. ### What's the difference between isset() and array_key_exists()?
+
+* array_key_exists will tell you if a key exists in an array and complains when $a does not exist.
+* isset will only return true if the key/variable exists and is not null. isset doesn't complain when $a does not exist.
+
+```
+$a = array('key1' => 'Foo Bar', 'key2' => null);
+
+isset($a['key1']);             // true
+array_key_exists('key1', $a);  // true
+
+isset($a['key2']);             // false
+array_key_exists('key2', $a);  // true
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+15. ### What is the difference between var_dump() and print_r()?
+
+* The var_dump function displays structured information about variables/expressions including its type and value. Arrays are explored recursively with values indented to show structure. It also shows which array values and object properties are references.
+
+* The print_r() displays information about a variable in a way that's readable by humans. array values will be presented in a format that shows keys and elements. Similar notation is used for objects.
+
+   ```
+   $obj = (object) array('qualitypoint', 'technologies', 'India');
+   ```
+   var_dump($obj)will display below output in the screen:
+
+   ```
+   object(stdClass)#1 (3) {
+   [0]=> string(12) "qualitypoint"
+   [1]=> string(12) "technologies"
+   [2]=> string(5) "India"
+   }
+   ```
+   And, print_r($obj) will display below output in the screen.
+
+   ```
+   stdClass Object ( 
+   [0] => qualitypoint
+   [1] => technologies
+   [2] => India
+   )
+   ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+16. ### Give me some real life examples when you had to use __destruct in your classes
+
+   We know that __destruct is called when the object is destroyed. Logically, what happens if the object is destroyed? Well, it means it's no longer available. So if it has resources open, it makes sense to close those resources as it's being destroyed or cleaning up after itself. Also because PHP will close resources on termination for you doesn't mean that it's bad to explicitly close them when you no longer need them (or good to not close them).
+
+   Some real examples are:
+
+* Closing custom database connector/wrapper connection
+* Deletion of temporary folders
+* Cleaning up caching
+* Spooling the queue of logging messages to db/file
 
 **[⬆ Back to Top](#table-of-contents)**
