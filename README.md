@@ -6,7 +6,7 @@
 |-----|-----------|
 | 1 | [How can you pass a variable by reference?](#How-can-you-pass-a-variable-by-reference) |
 | 2 | [What does $GLOBALS mean?](#what-does-GLOBALS-mean)|
-| 4 | [What is the use of ini_set()?](#What-is-the-use-of-ini_set()?)|
+| 4 | [What is the use of ini_set()?](#what-is-the-use-of-ini_set())|
 | 5 | [Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP?)
 | 6 | [Differentiate between echo and print()](#Differentiate-between-echo-and-print())
 | 7 | [Explain how we handle exceptions in PHP?](#Explain-how-we-handle-exceptions-in-PHP?)
@@ -88,7 +88,7 @@ $var1 = &$var2
  **[⬆ Back to Top](#table-of-contents)**
 
 
-1. ### What is the use of ini_set()?
+3. ### What is the use of ini_set()?
    PHP allows the user to modify some of its settings mentioned in php.ini using ini_set(). This function requires two string arguments. First one is the name of the setting to be modified and the second one is the new value to be assigned to it.
 
    Given line of code will enable the display_error setting for the script if it’s disabled.
