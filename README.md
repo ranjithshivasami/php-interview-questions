@@ -1,3 +1,14 @@
+<style>
+p.note { padding: 5px 15px; color: #000; background-color: #ffffcc}
+code {   
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #ccc
+    border-radius: 3px;
+    color: #e83e8c;
+}
+</style>
 # php Interview Questions
 
 ### Table of Contents
@@ -10,12 +21,9 @@
 | 4 | [What is the use of ini_set()?](#what-is-the-use-of-ini_set)|
 | 5 | [Is multiple inheritance supported in PHP?](#is-multiple-inheritance-supported-in-PHP)
 | 6 | [Differentiate between echo and print()](#differentiate-between-echo-and-print)
-| 7 | [Explain how we handle exceptions in PHP?](#explain-how-we-handle-exceptions-in-PHP)
-| 7 |[Explain how we handle exceptions in PHP?](#Explain-how-we-handle-exceptions-in-PHP)|
-| 8 |[What do we mean by keys and values?](#What-do-we-mean-by-keys-and-values)|
-| 9 |[Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP)|
-| 10 |[What is PDO in PHP?](#What-is-PDO-in-PHP)|
-| 11 |[What does the 'var' keyword mean in PHP?](#What-does-the-'var'-keyword-mean-in-PHP)|
+| 7 | [Explain how we handle exceptions in PHP?](#explain-how-we-handle-exceptions-in-PHP)|
+| 8 |[What is PDO in PHP?](#What-is-PDO-in-PHP)|
+| 9 |[What does the 'var' keyword mean in PHP?](#What-does-the-var-keyword-mean-in-PHP)|
 | 12 |[Explain what the different PHP errors are](#Explain-what-the-different-PHP-errors-are)|
 | 13 |[Is there a difference between isset and !empty?](#Is-there-a-difference-between-isset-and-!empty)|
 | 14 |[When should I use require vs include?](#When-should-I-use-require-vs-include)|
@@ -126,4 +134,44 @@ $var1 = &$var2
     * echo has no return value while print has a return value of 1 so it can be used in expressions.
     * echo can take multiple parameters (although such usage is rare) while print can take one argument.
     * echo is faster than print.
+  
+**[⬆ Back to Top](#table-of-contents)**
 
+7. ### Explain how we handle exceptions in PHP
+
+   When an exception is thrown, code following the statement will not be executed, and PHP will attempt to find the first matching catch block. If an exception is not caught, a PHP Fatal Error will be issued with an "Uncaught Exception". An exception can be thrown, and caught within PHP.
+
+   To handle exceptions, code may be surrounded in a ```try``` block. Each try must have at least one corresponding ```catch block```. Multiple catch blocks can be used to catch different classes of exceptions. Exceptions can be thrown (or re-thrown) within a catch block.
+
+   Consider
+
+   ```
+      try {
+         print "this is our try block n";
+         throw new Exception();
+      } catch (Exception $e) {
+         print "something went wrong, caught yah! n";
+      } finally {
+         print "this part is always executed n";
+      }
+   ```
+   **[⬆ Back to Top](#table-of-contents)**
+
+8. ### What is PDO in PHP?
+   PDO stands for PHP Data Object.
+
+   It is a set of PHP extensions that provide a core PDO class and database, specific drivers. It provides a vendor-neutral, lightweight, data-access abstraction layer. Thus, no matter what database we use, the function to issue queries and fetch data will be same. It focuses on data access abstraction rather than database abstraction.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+9. ### What does the 'var' keyword mean in PHP
+   The var keyword creates a property in a class. Since PHP 5, it is equivalent to the public keyword.
+   <p class="note"> <strong>Note </strong>: The var keyword is only used for compatibility reasons. Since PHP 5, the keywords private, protected and public should be used instead.</p>
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+10. ### Explain what the different PHP errors are
+
+      * A <code>notice</code> is a non-critical error saying something went wrong in execution, something minor like an undefined variable.
+      * A <code>warning </code> is given when a more critical error like if an include() command went to retrieve a non-existent file. In both this and the error above, the script would continue.
+      * A <code>fatal error </code> would terminate the code. Failure to satisfy a require() would generate this type of error, for example.
