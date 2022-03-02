@@ -194,4 +194,4 @@ $var1 = &$var2
 |$x = "-1";|string|false|false|true|true|
 |$x = "php";|string|false|false|true|true|
 |$x = "true";|string|false|false|true|true|
-|$x = "false";|string|false	false	true	true|
+|$x = "false";| string| false	|false|	true	|true|
