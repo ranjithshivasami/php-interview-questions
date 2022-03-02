@@ -87,21 +87,23 @@ $var1 = &$var2
 
  **[⬆ Back to Top](#table-of-contents)**
 
+
 3. ### What is the difference between==and===?
-* The operator == casts between two different types if they are different
-* The === operator performs a 'typesafe comparison'
+   
+   * The operator == casts between two different types if they are different
+   * The === operator performs a 'typesafe comparison'
   
-That means that it will only return true if both operands have the same type and the same value.
-```
-1 === 1: true
-1 == 1: true
-1 === "1": false // 1 is an integer, "1" is a string
-1 == "1": true // "1" gets casted to an integer, which is 1
-"foo" === "foo": true // both operands are strings and have the same value
-```
+   That means that it will only return true if both operands have the same type and the same value.
+   ```
+   1 === 1: true
+   1 == 1: true
+   1 === "1": false // 1 is an integer, "1" is a string
+   1 == "1": true // "1" gets casted to an integer, which is 1
+   "foo" === "foo": true // both operands are strings and have the same value
+   ```
  **[⬆ Back to Top](#table-of-contents)**
 
-4. ### What is the use of ini_set()?
+1. ### What is the use of ini_set()?
    PHP allows the user to modify some of its settings mentioned in php.ini using ini_set(). This function requires two string arguments. First one is the name of the setting to be modified and the second one is the new value to be assigned to it.
 
    Given line of code will enable the display_error setting for the script if it’s disabled.
