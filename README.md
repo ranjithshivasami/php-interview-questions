@@ -6,7 +6,7 @@
 |-----|-----------|
 | 1 | [How can you pass a variable by reference?](#How-can-you-pass-a-variable-by-reference) |
 | 2 | [What does $GLOBALS mean?](#what-does-GLOBALS-mean)|
-| 3 | [What is the difference between==and===?](#what-is-the-difference-between-and-?)|
+
 | 4 | [What is the use of ini_set()?](#What-is-the-use-of-ini_set()?)|
 | 5 | [Is multiple inheritance supported in PHP?](#Is-multiple-inheritance-supported-in-PHP?)
 | 6 | [Differentiate between echo and print()](#Differentiate-between-echo-and-print())
@@ -74,6 +74,7 @@
 | 67 |[Explain the Order of Precedence for Traits in PHP](#Explain-the-Order-of-Precedence-for-Traits-in-PHP)|
 | 68 |[What does a $$$ mean in PHP? ](#What-does-a-$$$-mean-in-PHP?)|
 | 69 |Are PDO prepared statements sufficient to prevent SQL injection?](#Are-PDO-prepared-statements-sufficient-to-prevent-SQL-injection?)|
+| 3 | [What is the difference between==and===?](#what-is-the-difference-between-and-?)|
 
 1. ### How can you pass a variable by reference
    To be able to pass a variable by reference, we use an ampersand in front of it, as follows:
@@ -83,25 +84,10 @@ $var1 = &$var2
  **[⬆ Back to Top](#table-of-contents)**
 
 2. ### What does $GLOBALS mean
-    $GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script.
+   $GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script.
 
  **[⬆ Back to Top](#table-of-contents)**
 
-
-3. ### What is the difference between==and===?
-   
-   * The operator == casts between two different types if they are different
-   * The === operator performs a 'typesafe comparison'
-  
-   That means that it will only return true if both operands have the same type and the same value.
-   ```
-   1 === 1: true
-   1 == 1: true
-   1 === "1": false // 1 is an integer, "1" is a string
-   1 == "1": true // "1" gets casted to an integer, which is 1
-   "foo" === "foo": true // both operands are strings and have the same value
-   ```
- **[⬆ Back to Top](#table-of-contents)**
 
 1. ### What is the use of ini_set()?
    PHP allows the user to modify some of its settings mentioned in php.ini using ini_set(). This function requires two string arguments. First one is the name of the setting to be modified and the second one is the new value to be assigned to it.
@@ -129,3 +115,17 @@ $var1 = &$var2
     * echo can take multiple parameters (although such usage is rare) while print can take one argument.
     * echo is faster than print.
 
+3. ### What is the difference between==and===?
+   
+   * The operator == casts between two different types if they are different
+   * The === operator performs a 'typesafe comparison'
+  
+   That means that it will only return true if both operands have the same type and the same value.
+   ```
+   1 === 1: true
+   1 == 1: true
+   1 === "1": false // 1 is an integer, "1" is a string
+   1 == "1": true // "1" gets casted to an integer, which is 1
+   "foo" === "foo": true // both operands are strings and have the same value
+   ```
+ **[⬆ Back to Top](#table-of-contents)**
