@@ -3,74 +3,6 @@
 
 ### Table of Contents
 
-| No. | Questions |
-|-----|-----------|
-| 1 | [How can you pass a variable by reference?](#How-can-you-pass-a-variable-by-reference) |
-| 2 | [What does $GLOBALS mean?](#what-does-GLOBALS-mean)|
-| 3 | [What is the difference between \== and \=== \?](#what-is-the-difference-between-and)|
-| 4 | [What is the use of ini_set()?](#what-is-the-use-of-ini_set)|
-| 5 | [Is multiple inheritance supported in PHP?](#is-multiple-inheritance-supported-in-PHP)
-| 6 | [Differentiate between echo and print()](#differentiate-between-echo-and-print)
-| 7 | [Explain how we handle exceptions in PHP?](#explain-how-we-handle-exceptions-in-PHP)|
-| 8 |[What is PDO in PHP?](#What-is-PDO-in-PHP)|
-| 9 |[What does the 'var' keyword mean in PHP?](#What-does-the-var-keyword-mean-in-PHP)|
-| 10 |[Explain what the different PHP errors are](#Explain-what-the-different-PHP-errors-are)|
-| 11 |[Is there a difference between isset and !empty?](#Is-there-a-difference-between-isset-and-empty)|
-| 12 |[When should I use require vs include?](#When-should-I-use-require-vs-include)|
-| 13 |[What is stdClass in PHP?](#What-is-stdClass-in-PHP)|
-| 14 |[What's the difference between isset() and array_key_exists()? ](#What-s-the-difference-between-isset-and-array_key_exists)|
-| 15 |[What is the difference between var_dump() and print_r()?](#What-is-the-difference-between-var_dump-and-print_r)|
-| 16 |[Give me some real life examples when you had to use __destruct in your classes](#Give-me-some-real-life-examples-when-you-had-to-use-destruct-in-your-classes)|
-| 20 |[Differentiate between echo and print()](#Differentiate-between-echo-and-print())|
-| 21 |[Can you extend a Final defined class?](#Can-you-extend-a-Final-defined-class)|
-| 22 |[What is the differences between $a != $b and $a !== $b?](#What-is-the-differences-between-\$a-!=-\$b-and-\$a-!==-\$b)|
-| 23 |[What is the difference between single-quoted and double-quoted strings in PHP?](#What-is-the-difference-between-single-quoted-and-double-quoted-strings-in-PHP)|
-| 24 |[What are the main differences between const vs define](#What-are-the-main-differences-between-const-vs-define)|
-| 25 |[How is it possible to set an infinite execution time for PHP script?](#How-is-it-possible-to-set-an-infinite-execution-time-for-PHP-script)|
-| 26 |[Explain usage of enumerations in PHP](#Explain-usage-of-enumerations-in-PHP)|
-| 27 |[What are the differences between die() and exit() functions in PHP?](#What-are-the-differences-between-die()-and-exit()-functions-in-PHP)|
-| 28 |[In PHP, objects are they passed by value or by reference?](#In-PHP,-objects-are-they-passed-by-value-or-by-reference)|
-| 29 |[What are the different scopes of variables?](#What-are-the-different-scopes-of-variables)|
-| 30 |[How can you enable error reporting in PHP?](#How-can-you-enable-error-reporting-in-PHP)|
-| 31 |[Differentiate between exception and error](#Differentiate-between-exception-and-error)|
-| 32 |[Explain function call by reference](#Explain-function-call-by-reference)|
-| 33 |[Does PHP support method overloading?](#Does-PHP-support-method-overloading)|
-| 34 |[What are some of the big changes PHP has gone through in the past few years?](#What-are-some-of-the-big-changes-PHP-has-gone-through-in-the-past-few-years)|
-| 35 |[Why do we use extract()?](#Why-do-we-use-extract())|
-| 36 |[Explain the difference between shell_exec() and exec()](#Explain-the-difference-between-shell_exec()-and-exec())|
-| 37 |[Differentiate between parameterised and non parameterised functions](#Differentiate-between-parameterised-and-non-parameterised-functions)|
-| 38 |[What is the difference between using self and $this?](#What-is-the-difference-between-using-self-and-\$this)|
-| 39 |[What exactly is the the difference between array_map, array_walk and array_filter?](#What-exactly-is-the-the-difference-between-array_map,-array_walk-and-array_filter)|
-| 40 |[Is there a function to make a copy of a PHP array to another?](#Is-there-a-function-to-make-a-copy-of-a-PHP-array-to-another)|
-| 41 |[When should I use require_once vs require?](#When-should-I-use-require_once-vs-require)|
-| 42 |[Are Parent constructors called implicitly inside a class constructor?](#Are-Parent-constructors-called-implicitly-inside-a-class-constructor)|
-| 43 |[What is use of Null Coalesce Operator?](#What-is-use-of-Null-Coalesce-Operator)|
-| 44 |[Maximum how many arguments are allowed in a function in PHP?](#Maximum-how-many-arguments-are-allowed-in-a-function-in-PHP)|
-| 45 |[What is the difference between PDO's query() vs execute()?](#What-is-the-difference-between-PDO's-query()-vs-execute())|
-| 46 |[Explain the difference between exec() vs system() vs passthru()?](#Explain-the-difference-between-exec()-vs-system()-vs-passthru())|
-| 47 |[What is the difference between MySQL, MySQLi and PDO? ](#What-is-the-difference-between-MySQL,-MySQLi-and-PDO)|
-| 48 |[What is autoloading classes in PHP?](#What-is-autoloading-classes-in-PHP)|
-| 49 |[What are the exception class functions?](#What-are-the-exception-class-functions)|
-| 50 |[Is there any reason to use strcmp() for strings comparison?](#Is-there-any-reason-to-use-strcmp()for-strings-comparison)|
-| 51 |[What is the difference between a PHP interpreter and a PHP handler?](#What-is-the-difference-between-a-PHP-interpreter-and-a-PHP-handler)|
-| 52 |[What does $$ mean?](#What-does-$$-mean)|
-| 53 |[explain what is a closure in PHP and why does it use the â€œuseâ€ identifier?](#explain-what-is-a-closure-in-PHP-and-why-does-it-use-the-â€œuseâ€-identifier)|
-| 54 |[What's better at freeing memory with PHP](#What's-better-at-freeing-memory-with-PHP)|
-| 55 |[Compare MySQLi or PDO - what are the pros and cons?](#Compare-MySQLi-or-PDO---what-are-the-pros-and-cons)|
-| 56 |[Does PHP have threading?](#Does-PHP-have-threading)|
-| 57 |[Store an array as JSON or as a PHP serialized array?](#Store-an-array-as-JSON-or-as-a-PHP-serialized-array)|
-| 58 |[What is use of Spaceship Operator?](#What-is-use-of-Spaceship-Operator)|
-| 59 |[What are the disadvantages of using persistent connection in PDO?](#What-are-the-disadvantages-of-using-persistent-connection-in-PDO)|
-| 60 |[What is the crucial difference between using traits versus interfaces?](#What-is-the-crucial-difference-between-using-traits-versus-interfaces)|
-| 61 |[How to turn errors into exceptions in PHP?](#How-to-turn-errors-into-exceptions-in-PHP)|
-| 62 |[What is the best method to merge two PHP objects?](#What-is-the-best-method-to-merge-two-PHP-objects)|
-| 63 |[Explain the Exception Hierarchy introduced in PHP7](#Explain-the-Exception-Hierarchy-introduced-in-PHP7)|
-| 64 |[What exactly are late static bindings in PHP?](#What-exactly-are-late-static-bindings-in-PHP)|
-| 65 |[What does yield mean in PHP?](#What-does-yield-mean-in-PHP)|
-| 66 |[Is PHP single or multi threaded?](#Is-PHP-single-or-multi-threaded)|
-| 67 |[Explain the Order of Precedence for Traits in PHP](#Explain-the-Order-of-Precedence-for-Traits-in-PHP)|
-| 68 |[What does a $$$ mean in PHP? ](#What-does-a-$$$-mean-in-PHP)|
-| 69 |Are PDO prepared statements sufficient to prevent SQL injection?](#Are-PDO-prepared-statements-sufficient-to-prevent-SQL-injection)|
 
 1. ### How can you pass a variable by reference
    To be able to pass a variable by reference, we use an ampersand in front of it, as follows:
@@ -268,3 +200,173 @@ array_key_exists('key2', $a);  // true
 * Spooling the queue of logging messages to db/file
 
 **[⬆ Back to Top](#table-of-contents)**
+
+17. ### What is a class?
+
+   A class is a template for an object, a user-defined datatype that contains variables, properties, and methods.
+
+   Class represents all properties and behaviors of object.
+
+   ```
+   class Person{
+    public $name;
+    public $age;
+    function __construct($name, $age){
+        $this->name = $name;
+        $this->age = $age;
+    }
+    function getUserDetails(){
+        return "Hi, My Name is ".$this->name." and I'm ". $this->age ." old 
+   ";
+      }
+   }
+   //To create php object we have to use a new operator. 
+
+   $obj = new Person("Ajay", 23);
+   echo $obj->getUserDetails();
+
+   //Output:
+   Hi, My Name is Ajay and I'm 23 old 
+   ```
+
+18. ### What is an object?
+
+   Objects are created from Classes, is an instance of a class that is created dynamically.
+
+   Object in programming is similar to real word object. Every programming object has some properties and behaviors.
+
+   You can create object of class with the help of new keyword
+
+   ```
+      //Create an object of MyClas 
+   $obj = new MyClass();
+   OR
+   $obj = new MyClass;
+   ```
+19. ### What is Constructor and Destructor?
+
+   **Constructor:**
+
+   Constructor is a special type of function which will be called automatically whenever there is any object created from a class.
+
+   ```
+   class myClass{
+      function __construct(){
+         // Define logic in constructor
+      }
+   }
+   ```
+
+ **Destructor:**
+
+   Destructor is a special type of function which will be called automatically whenever any object is deleted or goes out of scope.
+
+   ```
+   class myClass{
+      function __construct(){
+      // Define logic in constructor
+      }
+      function __destruct(){
+      // this is destructor 
+      }
+   }
+   ```
+20. ### What is Member Variable and Member function?
+
+   **Member Variable** − These are the variables defined inside a class. This data will be invisible to the outside of the class and can be accessed via member functions. These variables are called attribute of the object once an object is created.
+
+   **Member function** − These are the function defined inside a class and are used to access object data.
+
+   ```
+   <?php
+   class Books {
+      /* Member variables */
+      public $price;
+      public $title;
+      
+      /* Member functions */
+      function setPrice($par){
+         $this->price = $par;
+      }
+      
+      function getPrice(){
+         echo $this->price ."<br/>";
+      }
+      
+      function setTitle($par){
+         $this->title = $par;
+      }
+      
+      function getTitle(){
+         echo $this->title ." <br/>";
+      }
+   }
+   ```
+21. ### What is different types of Visibility? OR What are access modifiers?
+
+   Each method and property has its visibility. There are three types of visibility in PHP.
+
+   Types of visibility:
+
+1. **public:** Public method or variable can be accessible from anywhere, Means a public method or variable of a class can be called outside of the class or in a subclass.
+1. **protected:** A protected method or variable can only be called in that class & it's subclass.
+1. **private:** A private method or variable of a class can only be called inside that class only in which it is declared.
+
+NOTE: By default, in PHP, a class member is public unless declared private or protected.
+
+22. ### What is Encapsulation?
+
+   ```Wrapping up member variables and methods together into a single unit (i.e. Class) is called Encapsulation.```
+
+1. Encapsulation is used to hide the values or state of a structured data object inside a class, preventing unauthorized parties' direct access to them.
+1. Visibility is the mechanism for encapsulation.
+
+```
+class Person {
+	private $name;
+
+	public function setName($name) {
+		$this->name = $name;
+	}
+
+	public function getName($name) {
+		return $this->name;
+	}
+}
+
+$personObj = new Person();
+$personObj->setName('Full Stack Tutorials');
+$personObj->getName();
+```
+23. ### What is Abstraction?
+
+   ```Abstraction is a concept in which implementation details are hidden.```
+
+   **Abstract Class:**
+
+   ```Abstract class are class which contains atleast one or more abstract method.```
+
+   **Abstract Method:**
+
+   ```Abstract method is a method which is declared, but not defined.```
+
+1. PHP 5 introduces abstract classes and methods.
+1. Classes defined as abstract may not be instantiated
+1. Classes that contains at least one abstract method must also be abstract.
+1. Methods defined as abstract simply declare the method's signature - they cannot define the implementation. Abstract methods cannot be defined as private.
+1. Classes which are inheriting it's parent class must provides implementations for the abstract methods.
+
+24. ### PHP Namespaces
+
+   Namespaces are qualifiers that solve two different problems:
+
+1. They allow for better organization by grouping classes that work together to perform a task
+2. They allow the same name to be used for more than one class
+
+ ## Video link for Namespaces
+[<img src="./images/thumb.png" width="170" height="100">](https://www.youtube.com/watch?v=JIfNaqA4STg)
+
+
+ # Video link for Object Oriented PHP Tutorial 
+[<img src="https://i.ytimg.com/vi/Anz0ArcQ5kI/maxresdefault.jpg" width="170" height="100">](https://www.youtube.com/watch?v=Anz0ArcQ5kI&list=PL0eyrZgxdwhypQiZnYXM7z7-OTkcMgGPh)
+
