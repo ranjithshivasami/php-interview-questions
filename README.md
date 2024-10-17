@@ -410,6 +410,161 @@ Some APIs reveal far too much information, whether it’s the volume of extraneo
 </details>
 
 
+
+
+---
+
+### 1. **Describe how sessions work in PHP. What are some security best practices when managing sessions?**
+   - **Sessions in PHP:** 
+     - Sessions store user data across multiple page requests by using a unique session ID (stored in a cookie or passed via URL).
+     - Data is stored on the server, and the session ID links the user to their data.
+   - **Security Best Practices:**
+     - Use `session_regenerate_id()` to prevent session fixation.
+     - Set a short session timeout and use `session.cookie_secure` and `session.cookie_httponly` to enhance cookie security.
+     - Implement HTTPS to encrypt session data.
+     - Store minimal and non-sensitive data in session variables.
+
+---
+
+### 2. **How does PHP handle error reporting, and what are the different types of error levels?**
+   - PHP has a built-in error reporting mechanism controlled via `error_reporting()` and `ini_set()`.
+   - **Error Levels:**
+     - `E_ERROR`: Fatal runtime errors.
+     - `E_WARNING`: Non-fatal runtime warnings.
+     - `E_NOTICE`: Minor issues, often non-critical.
+     - `E_PARSE`: Compile-time parsing errors.
+     - `E_STRICT`: Recommends improvements in code.
+     - `E_DEPRECATED`: Warnings about deprecated code.
+
+---
+
+### 3. **What is the difference between interfaces and abstract classes in PHP? Provide examples of when to use each.**
+   - **Interfaces:** Define method signatures but no implementation. Classes must implement all methods.
+     - Use when multiple classes share behavior without inheriting the same structure.
+   - **Abstract Classes:** Can have both defined methods and method signatures.
+     - Use when there is a common base class but with shared behavior, allowing subclasses to provide specific implementations.
+
+   ```php
+   interface LoggerInterface {
+       public function log($message);
+   }
+
+   abstract class AbstractLogger {
+       public function log($message) {
+           // Default implementation
+       }
+       abstract public function formatMessage($message);
+   }
+   ```
+
+---
+
+### 4. **What is SOLID in object-oriented programming, and how do you apply these principles in PHP?**
+   - **SOLID Principles:**
+     - **S**ingle Responsibility Principle: A class should have one responsibility.
+     - **O**pen/Closed Principle: Classes should be open for extension but closed for modification.
+     - **L**iskov Substitution Principle: Subtypes should be replaceable with their base types.
+     - **I**nterface Segregation Principle: No client should be forced to depend on methods it does not use.
+     - **D**ependency Inversion Principle: Depend on abstractions, not concretions.
+
+   - **Application in PHP:**
+     - Implement interfaces to follow the Dependency Inversion Principle.
+     - Keep classes focused on single tasks.
+     - Use design patterns (e.g., Factory, Strategy) to ensure adherence to OOP principles.
+
+---
+
+### 5. **Explain dependency injection in PHP. How does it contribute to better application design?**
+   - **Dependency Injection (DI):** Passing dependencies (e.g., services, repositories) into an object instead of hard-coding them.
+   - **Benefits:**
+     - Promotes loose coupling and high testability.
+     - Allows easy swapping of dependencies (e.g., swapping a database layer).
+
+   ```php
+   class UserController {
+       private $userService;
+
+       public function __construct(UserService $userService) {
+           $this->userService = $userService;
+       }
+   }
+   ```
+
+---
+
+### 6. **What are some common vulnerabilities in PHP applications (e.g., SQL Injection, XSS)? How do you mitigate them?**
+   - **Common Vulnerabilities:**
+     - **SQL Injection:** Use prepared statements or ORM (e.g., PDO).
+     - **Cross-Site Scripting (XSS):** Sanitize and escape all user inputs using `htmlspecialchars()`.
+     - **Cross-Site Request Forgery (CSRF):** Use anti-CSRF tokens for forms.
+     - **File Inclusion Vulnerabilities:** Avoid direct user input in file paths.
+
+---
+
+### 7. **How do you build database queries in terms of security and performance?**
+   - **Security:** 
+     - Use prepared statements with bound parameters to prevent SQL injection.
+     - Sanitize inputs and outputs properly.
+   - **Performance:**
+     - Optimize queries with indexes.
+     - Avoid SELECT * and limit the number of rows fetched.
+     - Use database caching and profiling tools.
+
+---
+
+### 8. **Importance of database indexing. How would you optimize a query using indexes in PHP?**
+   - **Importance:** 
+     - Indexes speed up data retrieval by creating efficient data structures.
+   - **Optimization:**
+     - Identify frequent query columns and apply indexes.
+     - Use `EXPLAIN` to analyze query performance and optimize with compound indexes where necessary.
+
+---
+
+### 9. **How do you manage dependencies in large-scale PHP applications? What tools or patterns do you use?**
+   - Use dependency injection with service containers (e.g., Laravel’s IoC container).
+   - Utilize Composer for package management.
+   - Implement modular design patterns (e.g., Repository, Factory, Service) to separate concerns and promote scalability.
+
+---
+
+### 10. **How would you approach a large-scale, high-concurrency application in PHP? What are the key areas to focus on?**
+   - Focus Areas:
+     - **Caching:** Use Redis or Memcached for caching data and sessions.
+     - **Load Balancing:** Distribute traffic across multiple servers.
+     - **Database Optimization:** Use master-slave replication or sharding for scalability.
+     - **Queueing:** Use message queues (e.g., RabbitMQ) for task offloading.
+     - **Asynchronous Processing:** Implement event-driven architecture with workers for background processing.
+
+---
+
+### 11. **How do you ensure that code reviews are effective in your code and peers? What tools and techniques do you use?**
+   - **Techniques:** 
+     - Establish clear guidelines for code quality (PSR standards).
+     - Use static analysis tools (e.g., PHPStan, PHPCS).
+     - Ensure code is covered with unit and integration tests.
+     - Review small, focused changes to maintain clarity.
+
+---
+
+### 12. **As a lead developer, how would you balance meeting deadlines with ensuring code quality?**
+   - Set realistic timelines and avoid feature creep.
+   - Prioritize critical features while refactoring and improving code incrementally.
+   - Use continuous integration to detect issues early and ensure code is always production-ready.
+
+---
+
+### 13. **How do you use Git to manage branching strategies in a development team? What are some best practices?**
+   - **Branching Strategy:**
+     - Use **Git Flow** or **GitHub Flow** for clear workflows.
+     - Feature branches for new developments, hotfix branches for urgent fixes, and release branches for staging.
+   - **Best Practices:**
+     - Regularly merge and rebase to avoid large merges.
+     - Write clear commit messages and document code changes.
+
+---
+
+
  ## Video link for Namespaces
 [<img src="./images/thumb.png" width="170" height="100">](https://www.youtube.com/watch?v=JIfNaqA4STg)
 
