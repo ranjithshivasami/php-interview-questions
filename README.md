@@ -460,17 +460,175 @@ Some APIs reveal far too much information, whether it’s the volume of extraneo
 ---
 
 ### 4. **What is SOLID in object-oriented programming, and how do you apply these principles in PHP?**
-   - **SOLID Principles:**
-     - **S**ingle Responsibility Principle: A class should have one responsibility.
-     - **O**pen/Closed Principle: Classes should be open for extension but closed for modification.
-     - **L**iskov Substitution Principle: Subtypes should be replaceable with their base types.
-     - **I**nterface Segregation Principle: No client should be forced to depend on methods it does not use.
-     - **D**ependency Inversion Principle: Depend on abstractions, not concretions.
 
-   - **Application in PHP:**
-     - Implement interfaces to follow the Dependency Inversion Principle.
-     - Keep classes focused on single tasks.
-     - Use design patterns (e.g., Factory, Strategy) to ensure adherence to OOP principles.
+**SOLID** is a set of five principles in object-oriented programming (OOP) that helps developers build more maintainable, scalable, and flexible software. Here’s what each principle stands for and how you can apply them in PHP:
+
+### 1. **S - Single Responsibility Principle (SRP)**:
+   - **Definition**: A class should have only one reason to change, meaning it should only have one responsibility or job.
+   - **Application in PHP**:
+     In PHP, this principle can be applied by ensuring that each class you write has a single, well-defined purpose. For example, if you have a `User` class, it should only deal with user-related data. If you need to manage database operations for users, create a separate `UserRepository` class instead of overloading the `User` class.
+   
+   ```php
+   // Bad example (violating SRP)
+   class User {
+       public function getData() { /* logic to get user data */ }
+       public function saveToDatabase() { /* logic to save user to database */ }
+   }
+
+   // Good example (applying SRP)
+   class User {
+       public function getData() { /* logic to get user data */ }
+   }
+
+   class UserRepository {
+       public function save(User $user) { /* logic to save user to database */ }
+   }
+   ```
+
+### 2. **O - Open/Closed Principle (OCP)**:
+   - **Definition**: Classes should be open for extension but closed for modification. This means you should be able to add new features or behaviors to a class without modifying its existing code.
+   - **Application in PHP**:
+     In PHP, you can apply this by using inheritance or interfaces to extend functionality without changing existing classes. For example, use a base class or an interface to define common behavior, then create subclasses that extend or modify the behavior without altering the original class.
+
+   ```php
+   // Example
+   abstract class Payment {
+       abstract public function process($amount);
+   }
+
+   class CreditCardPayment extends Payment {
+       public function process($amount) {
+           // process credit card payment
+       }
+   }
+
+   class PayPalPayment extends Payment {
+       public function process($amount) {
+           // process PayPal payment
+       }
+   }
+   ```
+
+### 3. **L - Liskov Substitution Principle (LSP)**:
+   - **Definition**: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+   - **Application in PHP**:
+     In PHP, this means you should be able to use any subclass instance wherever a parent class is expected without breaking functionality. For example, if a method expects an object of class `Animal`, you should be able to pass a `Dog` or `Cat` object (both subclasses of `Animal`) without issues.
+
+   ```php
+   // Example
+   class Animal {
+       public function makeSound() {
+           return "Some sound";
+       }
+   }
+
+   class Dog extends Animal {
+       public function makeSound() {
+           return "Bark";
+       }
+   }
+
+   class Cat extends Animal {
+       public function makeSound() {
+           return "Meow";
+       }
+   }
+
+   function playSound(Animal $animal) {
+       echo $animal->makeSound();
+   }
+
+   playSound(new Dog()); // Outputs: Bark
+   playSound(new Cat()); // Outputs: Meow
+   ```
+
+### 4. **I - Interface Segregation Principle (ISP)**:
+   - **Definition**: A client should not be forced to implement interfaces it does not use. This means you should create specific interfaces for different functionalities instead of having one large, general-purpose interface.
+   - **Application in PHP**:
+     In PHP, you can apply ISP by splitting large interfaces into smaller, more specific ones, so classes only need to implement the methods they actually use.
+
+   ```php
+   // Bad example (violating ISP)
+   interface Worker {
+       public function work();
+       public function eat();
+   }
+
+   class HumanWorker implements Worker {
+       public function work() { /* Human work */ }
+       public function eat() { /* Human eats */ }
+   }
+
+   class RobotWorker implements Worker {
+       public function work() { /* Robot work */ }
+       public function eat() { /* Robots don't eat! */ } // Violates ISP
+   }
+
+   // Good example (applying ISP)
+   interface Workable {
+       public function work();
+   }
+
+   interface Eatable {
+       public function eat();
+   }
+
+   class HumanWorker implements Workable, Eatable {
+       public function work() { /* Human work */ }
+       public function eat() { /* Human eats */ }
+   }
+
+   class RobotWorker implements Workable {
+       public function work() { /* Robot work */ }
+   }
+   ```
+
+### 5. **D - Dependency Inversion Principle (DIP)**:
+   - **Definition**: High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces or abstract classes). Also, abstractions should not depend on details, but details should depend on abstractions.
+   - **Application in PHP**:
+     In PHP, you can apply DIP by depending on interfaces or abstract classes rather than concrete implementations. This allows for greater flexibility and easier testing since you can substitute implementations without changing the high-level logic.
+
+   ```php
+   // Bad example (violating DIP)
+   class MySQLConnection {
+       public function connect() { /* connection logic */ }
+   }
+
+   class User {
+       private $db;
+
+       public function __construct(MySQLConnection $db) {
+           $this->db = $db;
+       }
+   }
+
+   // Good example (applying DIP)
+   interface DBConnection {
+       public function connect();
+   }
+
+   class MySQLConnection implements DBConnection {
+       public function connect() { /* connection logic */ }
+   }
+
+   class User {
+       private $db;
+
+       public function __construct(DBConnection $db) {
+           $this->db = $db;
+       }
+   }
+
+   // Now you can switch to a different DB connection without modifying the User class
+   ```
+
+### Conclusion:
+By applying SOLID principles in PHP:
+- You **reduce coupling** between classes.
+- Your code becomes **easier to maintain** and **extend**.
+- It leads to **better design**, which helps in scaling the application.
+  
+These principles encourage modular design, making code more robust, testable, and flexible in the long term.
 
 ---
 
@@ -641,6 +799,143 @@ Some APIs reveal far too much information, whether it’s the volume of extraneo
 
 ### Conclusion
 Preventing data tampering in payment integration is crucial for maintaining transaction integrity and protecting users from fraud. Implementing encryption (SSL/TLS), tokenization, hashing, input validation, and other security measures ensures that data is not tampered with during the transaction process.
+
+### Explain best Coding standrads
+
+Adhering to **coding standards** ensures that code is consistent, maintainable, and easier to understand by developers within a team or community. Here’s a breakdown of the **best coding standards** that you should follow, especially for PHP development, but many of these apply universally to other languages as well.
+
+### 1. **Follow PSR Standards (For PHP Development)**
+   The PHP-FIG (Framework Interoperability Group) has defined a series of PHP Standards Recommendations (PSR) that are widely accepted across the PHP community. These include:
+
+   - **PSR-1: Basic Coding Standard**  
+     This defines general rules like file structure, namespace conventions, and class naming.
+     - Class names should be declared in `StudlyCaps`.
+     - Method names should be declared in `camelCase`.
+     - Side effects (like generating output) should not happen in files that just declare classes or functions.
+
+   - **PSR-2: Coding Style Guide**  
+     PSR-2 elaborates on PSR-1, specifying detailed code style rules:
+     - Indentation should be done using **4 spaces**, not tabs.
+     - Lines should not exceed **80 characters**.
+     - Opening braces for classes, functions, and methods go on the next line.
+     - Control structures (like `if`, `else`, `while`) must have a single space before the opening parenthesis, and braces should always be used even for single-line statements.
+
+   - **PSR-4: Autoloading Standard**  
+     Defines how to structure files and directories so they can be autoloaded by the Composer autoloader.
+
+### 2. **Consistent Naming Conventions**
+   Naming conventions are critical for readability and maintainability. 
+   - **Variables**: Use meaningful names that reflect the variable’s purpose.
+     - Use `camelCase` for variable and method names: `$firstName`, `$totalAmount`.
+   - **Classes**: Use **PascalCase (StudlyCaps)** for class names: `UserAccount`, `InvoiceGenerator`.
+   - **Constants**: Use **UPPERCASE** for constants with underscores separating words: `const MAX_LIMIT = 100;`.
+   - Avoid abbreviations and single-letter variable names (except for loop counters like `$i`).
+
+### 3. **Commenting and Documentation**
+   Writing clear and concise comments is important for understanding the logic behind complex sections of code. However, over-commenting can clutter code, so use comments wisely:
+   - **Method-Level Comments**: Use docblocks (e.g., PHPDoc) to explain what a function or class does, and what parameters and return values are expected.
+   - **Inline Comments**: Use inline comments to explain complex logic or decisions, but ensure the code itself is readable enough that it doesn't require excessive commenting.
+
+   Example of a PHPDoc:
+   ```php
+   /**
+    * Calculates the total amount for the order.
+    * 
+    * @param float $amount The base amount of the order.
+    * @param float $tax    The applicable tax.
+    * @return float        The total amount including tax.
+    */
+   public function calculateTotal(float $amount, float $tax): float {
+       return $amount + $tax;
+   }
+   ```
+
+### 4. **Use Version Control (Git) Properly**
+   Version control is crucial for collaborative development. Adhering to the following standards in Git:
+   - **Commit Frequently**: Make small, atomic commits with meaningful messages.
+   - **Write Clear Commit Messages**: Follow the format: `<verb> <message>`. Example: `Fix bug in user registration` or `Add validation for email input`.
+   - **Branching**: Use branches to separate features, bug fixes, and hotfixes. Follow a branching strategy like **GitFlow** or **GitHub Flow**.
+     - Main branches: `main`, `develop`.
+     - Feature branches: `feature/feature-name`.
+     - Hotfixes: `hotfix/issue-description`.
+
+### 5. **Code Readability**
+   Write code that is easy to read and understand for any developer. Tips:
+   - **Avoid long methods**: Break large functions into smaller ones that do one thing well.
+   - **DRY (Don't Repeat Yourself)**: Avoid code duplication. Reuse code through methods or helper functions.
+   - **KISS (Keep It Simple, Stupid)**: Aim for simplicity. Avoid complex, hard-to-read code unless absolutely necessary.
+
+### 6. **Error Handling and Logging**
+   Proper error handling ensures stability:
+   - Use `try-catch` blocks to handle exceptions rather than letting the program crash.
+   - Log errors instead of displaying them to the user, especially in production environments. Use logging libraries like **Monolog** in PHP.
+   - For security reasons, never show sensitive information in error messages.
+
+   Example:
+   ```php
+   try {
+       // code that might throw an exception
+   } catch (Exception $e) {
+       error_log($e->getMessage()); // log the error
+       echo "Something went wrong. Please try again later."; // show user-friendly message
+   }
+   ```
+
+### 7. **Security Best Practices**
+   Writing secure code is crucial in web development. Key security practices include:
+   - **Sanitize Inputs**: Always sanitize and validate user input to avoid SQL injection and XSS attacks.
+   - **Prepared Statements**: Use prepared statements with bound parameters for database queries to prevent SQL injection.
+     ```php
+     $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
+     $stmt->bind_param("s", $email);
+     $stmt->execute();
+     ```
+   - **Password Hashing**: Use secure password hashing algorithms like **bcrypt** or **argon2** instead of plain text or weak hashes like `md5`.
+     ```php
+     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+     ```
+   - **Use HTTPS**: Always serve content over HTTPS to encrypt sensitive data (like user credentials).
+
+### 8. **Unit Testing**
+   Testing ensures that your code works as expected and prevents future bugs:
+   - Write unit tests for your code using frameworks like **PHPUnit** for PHP.
+   - Ensure your tests cover critical paths in your code, including edge cases.
+   - Practice **Test-Driven Development (TDD)** where you write tests first, then implement the functionality.
+
+   Example of a PHPUnit test:
+   ```php
+   public function testCalculateTotal() {
+       $order = new Order();
+       $this->assertEquals(110, $order->calculateTotal(100, 10));
+   }
+   ```
+
+### 9. **Code Reviews and Pair Programming**
+   Code reviews ensure that code adheres to standards and improves code quality:
+   - Conduct regular code reviews to spot potential issues, maintain consistency, and share knowledge.
+   - Pair programming helps transfer knowledge and improve code quality through collaboration.
+
+### 10. **Avoid Hardcoding Values**
+   Hardcoded values make code difficult to maintain:
+   - Use constants, environment variables, or configuration files to handle values that are likely to change.
+     ```php
+     define("MAX_RETRY_ATTEMPTS", 5);  // Use constant instead of hardcoded value
+     ```
+
+### 11. **Optimize for Performance**
+   Consider performance improvements early in the development:
+   - **Minimize Database Queries**: Use eager loading and avoid N+1 query problems.
+   - **Cache Repeated Data**: Use caching mechanisms like **Memcached** or **Redis** to avoid repeatedly fetching the same data.
+   - **Optimize Loops**: Avoid complex logic inside loops, and pre-compute values when possible.
+
+### 12. **Consistent Indentation**
+   Ensure consistent indentation throughout your code. Most coding standards recommend using **spaces over tabs** (4 spaces per indentation level).
+
+### Conclusion:
+By adhering to best coding standards, you:
+- Ensure that your code is **maintainable**, **scalable**, and **readable**.
+- Facilitate **team collaboration** by ensuring consistency across the project.
+- Reduce the likelihood of **errors** and **security vulnerabilities** by following best practices for error handling and secure coding.
 
 
  ## Video link for Namespaces
